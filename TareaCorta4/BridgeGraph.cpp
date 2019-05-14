@@ -8,7 +8,8 @@ BridgeGraph::BridgeIterator::BridgeIterator(const DenseGraph & G, unsigned int v
 	: G{ G }, v{ v }, i{ 0 } {}
 
 Edge * BridgeGraph::BridgeIterator::beg()
-{
+{	
+
 	
 	return nxt();
 }

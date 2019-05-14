@@ -11,7 +11,6 @@ int main()
 	g.insert(Edge(6,7));
 	g.print();
 	DenseGraph::adjIterator A(g, 0);
-	cout << "\nAdyacentes al nodo 0 = ";
 	for (unsigned int w = A.beg(); !A.end(); w = A.nxt()) {
 		cout << w << " ";
 	}
