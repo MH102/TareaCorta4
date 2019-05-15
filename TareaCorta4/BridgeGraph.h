@@ -2,21 +2,28 @@
 #include "DenseGraph.h"
 class BridgeGraph
 {
-	DenseGraph& graph;
+	 DenseGraph graph;
+	
 public:
-	BridgeGraph(DenseGraph& graph):
-		graph(graph){}
+	BridgeGraph(DenseGraph& Graph):
+		graph(Graph){
+		
+	}
 	class BridgeIterator;
 	friend class BridgeIterator;
 };
 class BridgeGraph::BridgeIterator {
-	const DenseGraph & G;
+	 DenseGraph & G;
 	unsigned int v;
 	int i;
 public:
-	BridgeIterator(const DenseGraph &G, unsigned int v);
-	Edge* beg();
-	Edge* nxt();
+	BridgeIterator( DenseGraph &G, unsigned int v);
+	void beg(vector<bool>* visitado);
+	bool search(DenseGraph m, unsigned int orig, unsigned int sea, int contadorVisitados,  vector<bool>* visitado);
+	bool searchAux(unsigned int orig, unsigned int  curr, unsigned int sea);
+	static bool contains(vector<unsigned int> ad, unsigned int  busq);
+	void nxt(vector<bool>* visitado);
 	bool end();
+	
 };
 
