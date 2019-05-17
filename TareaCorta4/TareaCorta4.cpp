@@ -16,6 +16,8 @@ int main()
 	g.insert(Edge(7, 4));
 	g.insert(Edge(7, 8));
 	g.insert(Edge(7, 10));
+	g.insert(Edge(8, 10));
+	g.insert(Edge(8, 7));
 	g.insert(Edge(10, 8));
 	g.insert(Edge(10, 7));
 	g.insert(Edge(5, 0));
@@ -28,6 +30,7 @@ int main()
 	g.insert(Edge(4, 3));
 	g.insert(Edge(4, 5));
 	g.insert(Edge(9, 4));
+	g.insert(Edge(9, 11));
 	g.insert(Edge(11, 9));
 	g.insert(Edge(11, 4));
 	g.insert(Edge(11, 12));

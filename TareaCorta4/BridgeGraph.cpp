@@ -18,7 +18,8 @@ bool BridgeGraph::BridgeIterator::search(DenseGraph m,unsigned int orig, unsigne
 	DenseGraph::adjIterator A(m, 0);
 	
 	for (unsigned int w = A.beg(); !A.end(); w = A.nxt()) {
-		if (w != orig)ad.push_back(w);
+		if (w != orig) ad.push_back(w);
+
 	}
 
 	if (contains(ad, sea))
@@ -58,18 +59,19 @@ void BridgeGraph::BridgeIterator::nxt(vector<bool>* visitado)
 	for (i++; i < int(G.V()); i++){
 		vector<unsigned int> ad;
 		DenseGraph::adjIterator A(G, i);
+		ad.clear();
 		for (unsigned int w = A.beg(); !A.end(); w = A.nxt()) {
 			ad.push_back(w);
 		}
 		for (unsigned int j = 0; j < ad.size(); j++) {
-			cout << "Los  numeros " << i << j<<ad[j];
-				G.remove(Edge(i,ad[j]));
-			if(!search(G,i,j,0,visitado)){
-				cout << "(" << i << "," << ad[j] << ")" << " es puente" << endl;
+			G.remove(Edge(i,j));
+			if(!search(G,i,j,0,visitado) and G.edge(i,j)){
+				cout << "(" << i << "," << j << ")" << " es puente" << endl;
 				break;
 			}
 			
 		}
+
 		
 	
 	}
@@ -82,5 +84,5 @@ void BridgeGraph::BridgeIterator::nxt(vector<bool>* visitado)
 
 	bool BridgeGraph::BridgeIterator::end()
 {
-	return false;
+	return i >= int(G.V());;
 }
